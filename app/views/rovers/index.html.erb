@@ -1,11 +1,13 @@
-{ action: "move_elem", elem: elem }
-
 <h1> Mars-Rovers </h1>
 
-<%= form_tag(method: "post") do %>
+<%= form_tag("/calculate", method: "post") do %>
   <%= label_tag(:coords, "Coords:") %>
   <%= text_field_tag(:coords) %>
   <%= label_tag(:actions, "Actions:") %>
-  <%= text_field_tag(:Actions) %>
-  <%= submit_tag("Search") %>
+  <%= text_field_tag(:actions) %>
+  <%= submit_tag("Calculate")  %>
+<% end %>
+
+<% if @coords %>
+  <p class="coords">Rover's position: <%= @coords %></p>
 <% end %>
