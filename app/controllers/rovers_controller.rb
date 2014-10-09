@@ -15,13 +15,13 @@ class RoversController < ApplicationController
     @actions.each do |a|
       if a == "M"
         @coords[1] += 1 if @coords[-1] == "N"
-  	    @coords[0] += 1 if @coords[-1] == "E"
+  	@coords[0] += 1 if @coords[-1] == "E"
         @coords[1] -= 1 if @coords[-1] == "S"
-  	    @coords[0] -= 1 if @coords[-1] == "W"
+  	@coords[0] -= 1 if @coords[-1] == "W"
       elsif a == "L"
-  	    @coords[-1] = NEWS[NEWS.index(@coords[-1]) - 1]
+  	@coords[-1] = NEWS[NEWS.index(@coords[-1]) - 1]
       elsif a == "R"
-  	    @coords[-1] = NEWS[(NEWS.index(@coords[-1]) + 1) % NEWS.size]
+  	@coords[-1] = NEWS[(NEWS.index(@coords[-1]) + 1) % NEWS.size]
       end
     end
     
